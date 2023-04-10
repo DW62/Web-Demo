@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,53 @@
     <!-- 引入css文件 -->
     <link rel="stylesheet" href="style.css">
     <!-- 引入 font-awesome 的cdnjs链接-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>响应式导航</title>
 </head>
+
 <body>
     <header>
         <div class="navbar">
-            <div class="logo"><a href="#">Web Dev Creative</a></div>
+            <div class="logo"><a href="#">Logo</a></div>
             <ul class="links">
                 <li><a href="hero">Home</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="services">Services</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="about">关于</a></li>
+                <li><a href="services">服务</a></li>
+                <li><a href="contact">联系</a></li>
             </ul>
-            <a href="#" class="action_btn">Get Started</a>
+            <a href="#" class="action_btn">登录</a>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
+
+        <!-- 下拉菜单 -->
+        <div class="dropdown_menu ">
+            <li><a href="hero">Home</a></li>
+            <li><a href="about">关于</a></li>
+            <li><a href="services">服务</a></li>
+            <li><a href="contact">联系</a></li>
+            <li><a href="#"><a href="#" class="action_btn">登录</a></a></li>
+        </div>
     </header>
+
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcn = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function () {
+            //给元素添加open的class名
+            dropDownMenu.classList.toggle('open')
+            //判断是否有名字为opne的class
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcn.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
+        }
+    </script>
 </body>
+
 </html>

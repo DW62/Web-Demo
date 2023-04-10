@@ -18,7 +18,7 @@ li{
 }
 
 a{
-    text-decoration: none;
+    text-decoration: none;/**去除连接下划线**/
     color: #fff;
     font-size: 1rem;
 }
@@ -49,7 +49,7 @@ header{
 /* 列表样式 */
 .navbar .links{
     display: flex;
-    gap: 2rem;
+    gap: 2rem;/**设置偏移量**/
 }
 
 /* 图标按钮样式 */
@@ -59,7 +59,7 @@ header{
     cursor: pointer;
     display: none;
 }
-
+/* 登录按钮样式 */
 .action_btn{
     background-color: orange;
     color:#fff;
@@ -70,4 +70,67 @@ header{
     font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn:hover{
+    scale: 1.05;/**设置缩放**/
+    color: #fff;
+}
+/* 设置按钮点击时效果 */
+.action_btn:active{
+    scale: 0.95;
+}
+
+/* 下拉菜单样式 */
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    height: 0;
+    top: 60px;
+    width: 300px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.dropdown_menu.open{
+    height: 240px;
+}
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (max-width:992px) {
+    /* 当宽度小于992px 进行元素隐藏 */
+    .navbar .links ,
+    .navbar .action_btn{
+        display: none;
+    }
+    /* 当宽度小于992px 进行元素显示 */
+    .navbar .toggle_btn{
+        display: block;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media (max-width:576px) {
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;/* 宽度继承父类 */
+    }
 }
