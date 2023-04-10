@@ -1,0 +1,10 @@
+//ts编译文件
+
+{
+    "compilerOptions": {
+        "module": "ES2015",  //表示转换es6版本
+        "target": "ES2015",  //表示转换es6版本
+        "strict": true ,     //表示严格检测
+        "noEmitOnError": true   //设置当出现错误时不进行打包
+    }
+}
