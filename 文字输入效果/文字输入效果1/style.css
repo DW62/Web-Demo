@@ -1,5 +1,6 @@
 body{
     --color:#00ffff;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,16 +36,3 @@ body{
     }
 }
 
-.spend{
-    position: absolute;
-    bottom: 1em;
-    background-color: #00000077;
-    padding: 0.5em;
-    font-weight: bold;
-}
-.spend .spend-input{
-    width: 2rem;
-    border: none;
-    outline: none;
-    background-color: var(--color);
-}

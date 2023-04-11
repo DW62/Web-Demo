@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,60 +8,55 @@
     <link rel="stylesheet" href="style.css">
     <title>文字输入效果1</title>
 </head>
+
 <body>
     <div class="typeing blink">How are you!</div>
-    <div class="spend">
-        Spend:
-        <input type="number" class="spend-input" value="5" min="1" max="20"/>
-    </div>
     <script>
-        let spendNum;//设置速度
-        const spendDom=document.querySelector(".spend-input");//输入框dom
-        //速度修改方法
-        function updateSpend(){
-            spendNum= 600 / spendDom.value;
-        }
-        updateSpend();
-        //给输入框添加change事件
-        spendDom.addEventListener("change",updateSpend);
+        let spendNum = 120; //速度
 
-        const typeingDoms=Array.from(document.querySelectorAll(".typeing"));
-        typeingDoms.forEach((dom)=>{
-            dom.index112=0;
-            dom.text112=dom.innerHTML;
-            dom.innerHTML="";
-            
+        const typeingDoms = Array.from(document.querySelectorAll(".typeing"));
+        typeingDoms.forEach((dom) => {
+            dom.count = 0; //给dom添加一个属性icount 值为0
+            dom.content = dom.innerHTML; //给dom添加一个属性content 值为文本内容
+            dom.innerHTML = "";//将原来内容改为空
+
             updateTypeing(dom);
         });
-
-        function updateTypeing(dom){
-            //跟新动画
+        //更新文本
+        function updateTypeing(dom) {
+            //更新动画
             dom.classList.remove("blink");
-            setTimeout(()=>dom.classList.add("blink"),200);
+            setTimeout(() => dom.classList.add("blink"), 200);
 
-            const text=dom.text112;
-            let index=dom.index112;
-            let d= spendNum;
-            const t=text[index];
-            dom.append(t);
+            //更新输入
+            const text = dom.content;
+            let index = dom.count;
+            const t = text[index];
+            dom.append(t);//添加值
 
-            //跟新index
+            let d = spendNum;
+            //更新index
             index++;
-            if(index >= text.lenght){
+            if (index >= text.length) {
                 index = 0;
+                //更新延迟
                 d = spendNum * 20;
-                setTimeout(()=>{
-                    dom.innerHTML="";
-                },d / 2);
-            }else{
-                if(t===" "){
+
+                setTimeout(() => {
+                    dom.innerHTML = "";
+                }, d / 2);
+            } else {
+                if (t === " ") {
+                    //更新延迟
                     d = spendNum * 2;
                 }
             }
+            dom.count = index;
 
-            dom.index112 = index;
-            setTimeout(updateTypeing,d,dom);
+            //下次更新
+            setTimeout(updateTypeing, d, dom);
         }
     </script>
 </body>
+
 </html>
