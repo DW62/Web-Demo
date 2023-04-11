@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>文字输入效果1</title>
+</head>
+<body>
+    <div class="typeing blink">How are you!</div>
+    <div class="spend">
+        Spend:
+        <input type="number" class="spend-input" value="5" min="1" max="20"/>
+    </div>
+    <script>
+        let spendNum;//设置速度
+        const spendDom=document.querySelector(".spend-input");//输入框dom
+        //速度修改方法
+        function updateSpend(){
+            spendNum= 600 / spendDom.value;
+        }
+        updateSpend();
+        //给输入框添加change事件
+        spendDom.addEventListener("change",updateSpend);
+
+        const typeingDoms=Array.from(document.querySelectorAll(".typeing"));
+        typeingDoms.forEach((dom)=>{
+            dom.index112=0;
+            dom.text112=dom.innerHTML;
+            dom.innerHTML="";
+            
+            updateTypeing(dom);
+        });
+
+        function updateTypeing(dom){
+            //跟新动画
+            dom.classList.remove("blink");
+            setTimeout(()=>dom.classList.add("blink"),200);
+
+            const text=dom.text112;
+            let index=dom.index112;
+            let d= spendNum;
+            const t=text[index];
+            dom.append(t);
+
+            //跟新index
+            index++;
+            if(index >= text.lenght){
+                index = 0;
+                d = spendNum * 20;
+                setTimeout(()=>{
+                    dom.innerHTML="";
+                },d / 2);
+            }else{
+                if(t===" "){
+                    d = spendNum * 2;
+                }
+            }
+
+            dom.index112 = index;
+            setTimeout(updateTypeing,d,dom);
+        }
+    </script>
+</body>
+</html>
