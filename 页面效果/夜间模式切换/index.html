@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="toggle"></div>
+    <div class="main">
+        <h1>夜晚</h1>
+        <p> 夜晚，指的是太阳低于地平线的期间（傍晚起至凌晨日出为止），地面光线和温度减少的现象。
+            依照各地时区和季节不同，进入夜晚时段的时间也有所差别。
+            极高纬度地区在特定季节，会发生「永昼」（太阳整日未落入地平线）或「永夜」（太阳整日未探出地平线）的现象。
+        </p>
+        <br><br>
+        <h1>夜生活</h1>
+        <p> 在人类社会里，以往照明设施并不发达，当时的多数民众遵循「日出而作、日落而息」的规律，
+            商家常在夜晚时段便正式打烊，民众除非遭遇特殊紧急事件，否则绝不在夜晚任意外出远行，
+            加著在夜晚时段发生不法事件和危险事件的机率也会增加，所以也会安排特定的夜间巡守警备，
+            负责维持当地夜间秩序。随著人类历史、科技、文化发展，有部分的地区居民晚间时段仍需要工作维生乃至于熬夜加班，
+            开始出现许多夜晚时段的特殊活动（特别是娱乐活动），
+            例如夜市、宵夜、庆祝或交谊性的晚会、夜唱KTV、在特定餐厅、咖啡厅、茶馆、酒馆享用餐饮聚会或约会、光顾夜间娱乐场所（通称「夜总会」）等。
+            此外，有部分庆典或节日是在夜晚进行相关活动（尤其是满月之夜），特定影视节目则会选在晚间乃至于深夜时段才播出。
+            夜晚期间盛行的活动则称为「夜生活」。
+        </p>
+    </div>
+    <script src="jquery.js"></script> <!--引入jquery-->
+    <script>
+        $(document).ready(function(){
+            $('.toggle').click(function(){  //按钮点击事件
+                $(".toggle").toggleClass("active"); //切换样式
+                $("body").toggleClass("night"); //切换样式
+            })
+        });
+    </script>
+</body>
+</html>
