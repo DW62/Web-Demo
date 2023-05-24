@@ -1,0 +1,91 @@
+*{
+    margin: 0; /*外边距*/
+    padding: 0; /*内边距*/
+    box-sizing: border-box; /**/
+    font-family: sans-serif; /*字体*/
+}
+body{
+    display: flex; /*盒模型*/
+    justify-content: center; /*主轴*/
+    align-items: center; /*副轴*/
+    min-height: 100vh; /*最小高度*/
+    background: yellow; /*背景颜色*/
+}
+.container{
+    position: relative; /*相对定位*/
+    width: 1000px;
+    display: grid; /*网格布局*/
+    grid-template-columns: repeat(4,minmax(250px,1fr));  /*网格子元素的布局，重复（个数，大小）*/
+    /*https://developer.mozilla.org/zh-CN/docs/Web/CSS/grid-template-columns*/
+}
+.container .card{
+    position: relative;
+    display: flex;
+    flex-direction: column; /*盒模型以列方式布局*/
+    background: #fff; 
+}
+.container .card:nth-child(2n+2){ /*2个为一组,其中第一个为一下格式*/
+    flex-direction: column-reverse; /*列模式倒叙*/
+}
+.container .card .imgBx{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: #000;
+}
+.container .card .imgBx img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    object-fit: cover; /*保持宽高比进行填充*/
+    /*https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit*/
+}
+.container .card .content{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .card .content div{
+    padding: 20px;
+    text-align: center; /*文字居中*/
+}
+@media (max-width:1000px){ /*当宽度小于1000时更改*/
+    .container{
+        grid-template-columns: repeat(auto-fit,minmax(100%,1fr));
+        margin: 50px;
+    }
+    .container .card{
+        flex-direction: row; /**/
+        margin: 10px 0;
+    }
+    .container .card:nth-child(even){
+        flex-direction: row-reverse;
+    }
+    .container .card .imgBx,
+    .container .card .content
+    {
+        width: 50%;
+    }
+}
+@media (max-width:600px){ /*当宽度小于600时更改*/
+    .container .card{
+        flex-direction: column;
+        margin: 10px 0;
+    }
+    .container .card:nth-child(even){
+        flex-direction: column;
+    }    
+    .container .card .imgBx,
+    .container .card .content
+    {
+        width: 100%;
+    }
+    .container .card .content{
+        height: 100%;
+    }
+}
