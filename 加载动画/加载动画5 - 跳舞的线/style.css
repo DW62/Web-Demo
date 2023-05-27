@@ -1,0 +1,137 @@
+body{
+    margin: 0; /*外边距*/
+    padding: 0; /*内边距*/
+    display: flex; /*弹性盒模型*/
+    justify-content: center; /*主轴对齐方式*/
+    align-items: center; /*交叉轴对齐方式*/
+    min-height: 100vh; /*最小高度*/
+    background-color: #89179e; /*背景颜色*/
+}
+.loader{
+    position: relative; /*相对定位*/
+    width: 300px; /*宽度*/
+    height: 300px; /*高度*/
+    transform-style: preserve-3d; /*保留3D状态*/
+    transform: perspective(500px) rotateX(60deg); /*变化：视距500px X轴旋转60度*/
+}
+.loader span{
+    position: absolute;
+    display: block; /*块模型*/
+    border: 2px solid #fff; /*边框 2px 实线 颜色*/
+    box-sizing: border-box; /*宽度定位*/
+    border-radius: 50%; /*边框圆角*/
+    animation: cc 3s ease-in-out infinite; /*动画（ 名字 时间 开始-结束过渡时间 重复）*/
+}
+@keyframes cc{ /*动画*/
+    0%,100%{
+        transform: translateZ(-100px); /*Z轴移动*/
+    }
+    50%{
+        transform:translateZ(100px); 
+    }
+}
+.loader span:nth-child(1){ /*第一个元素*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation-delay: 1.4s; /*延时播放*/
+}
+.loader span:nth-child(2){
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    animation-delay: 1.3s;
+}
+.loader span:nth-child(3){
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    animation-delay: 1.2s;
+}
+.loader span:nth-child(4){
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    animation-delay: 1.1s;
+}
+.loader span:nth-child(5){
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    animation-delay: 1s;
+}
+.loader span:nth-child(7){
+    top: 50px;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    animation-delay: 0.9s;
+}
+.loader span:nth-child(8){
+    top: 60px;
+    left: 60px;
+    right: 60px;
+    bottom: 60px;
+    animation-delay: 0.8s;
+}
+.loader span:nth-child(9){
+    top: 70px;
+    left: 70px;
+    right: 70px;
+    bottom: 70px;
+    animation-delay: 0.7s;
+}
+.loader span:nth-child(10){
+    top: 80px;
+    left: 80px;
+    right: 80px;
+    bottom: 80px;
+    animation-delay: 0.6s;
+}
+.loader span:nth-child(11){
+    top: 90px;
+    left: 90px;
+    right: 90px;
+    bottom: 90px;
+    animation-delay: 0.5s;
+}
+.loader span:nth-child(12){
+    top: 100px;
+    left: 100px;
+    right: 100px;
+    bottom: 100px;
+    animation-delay: 0.4s;
+}
+.loader span:nth-child(13){
+    top: 110px;
+    left: 110px;
+    right: 110px;
+    bottom: 110px;
+    animation-delay: 0.3s;
+}
+.loader span:nth-child(14){
+    top: 120px;
+    left: 120px;
+    right: 120px;
+    bottom: 120px;
+    animation-delay: .2s;
+}
+.loader span:nth-child(15){
+    top: 130px;
+    left: 130px;
+    right: 130px;
+    bottom: 130px;
+    animation-delay: .1s;
+}
+.loader span:nth-child(6){
+    top: 140px;
+    left: 140px;
+    right: 140px;
+    bottom: 140px;
+    animation-delay: 0s;
+}
