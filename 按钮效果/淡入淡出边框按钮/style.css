@@ -1,0 +1,67 @@
+body{
+  margin: 0; /*外边距*/
+  padding: 0; /*内边距*/
+  font-family: sans-serif; /*字体格式*/
+}
+ul{
+  position: absolute; /*决对定位*/
+  top: 50%; /*距上部*/
+  left: 50%; /*距左部*/
+  transform: translate(-50%,-50%); /*移动x,y相对于自身*/
+  margin: 0;
+  padding: 0;
+  display: flex; /*弹性盒模型*/
+}
+ul li{
+  list-style: none; /*列表样式*/
+}
+ul li a{
+  position: relative;
+  display: block; /*块模型*/
+  padding: 10px 20px;
+  margin: 20px 0;
+  text-decoration: none; /*字体装饰*/
+  text-transform: uppercase; /*字体大写*/
+  color: #262626;
+  font-weight: bold; /*字体加粗*/
+  transition: .5s; /*过渡时间*/
+}
+ul li a:hover{
+  color: #fff;
+}
+ul li a::before{ /*之后添加，此处为边框*/
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(2.5); /*Y轴放大2.5倍*/
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  opacity: 0; /*透明度*/
+  transition: .5s;
+}
+ul li a:hover::before{ /*悬停时，边框显示*/
+  transform: scaleY(1.5); /*放大到1.5倍*/
+  opacity: 1;
+}
+
+
+ul li a::after{ /*之后添加，a标签的背景*/
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  background-color: #000;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  transition: .5s;
+  z-index: -1; /*图层顺序*/
+}
+ul li a:hover::after{
+  transform: scale(1);
+}
