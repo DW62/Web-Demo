@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id='container'>
+        <div class='content'>
+            <h2>404</h2>
+            <h4>Opps! Page not found</h4>
+            <p>
+                2013年，404 Not Found成为中国大陆的网络热词。在中国，404被大部分网民普遍用作网站被防火长城屏蔽的代名词。而事实上，由于防火长城一般的封锁方法是向连接两端的计算机发送RST（Reset）数据包干扰两者间正常的TCP连接，被防火长城屏蔽的网站无法回复任何HTTP状态码，最常见的错误信息是“连接已被重置”。
+            </p>
+            <a href="#">
+                Back To Home
+            </a>
+        </div>
+    </div>
+    <script>
+        // 根据id获取元素
+        const container = document.getElementById('container');
+        // 窗口的鼠标移动事件,传入event对象
+        window.onmousemove = function(e) {
+            // 返回被触发时的鼠标X，Y位置
+            let x = e.clientX / 5 
+                y = e.clientY / 5;
+            // 将容器的背景图片定位进行修改
+            container.style.backgroundPositionX = x + 'px';
+            container.style.backgroundPositionY = y + 'px';
+        }
+    </script>
+</body>
+</html>
