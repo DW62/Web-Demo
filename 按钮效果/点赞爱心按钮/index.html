@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+</head>
+<body>
+	<!-- 外边框 -->
+  <div class="heart-btn">
+		<!-- 内容 -->
+		<div class="content">
+			<!-- 爱心 -->
+			<span class="heart"></span>
+			<!-- 文字Liek -->
+			<span class="like">Like</span>
+			<!-- 数字 -->
+			<span class="numb"></span>
+		</div>
+	</div>
+	<script>
+		// 页面加载完成后执行
+		$(document).ready(function() {
+			// 根据类名添加点击事件
+			$('.content').click(function() {
+				// 根据类切换类名
+				$(this).toggleClass('heart-active')
+				$('.like').toggleClass('heart-active')
+				$('.heart').toggleClass('heart-active')
+				$('.numb').toggleClass('heart-active')
+			})
+		})
+	</script>
+</body>
+</html>
