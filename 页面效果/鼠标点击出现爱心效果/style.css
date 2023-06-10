@@ -1,0 +1,31 @@
+* {
+  margin: 0; /* 外边距 */
+  padding: 0; /* 内边距 */
+}
+
+body {
+  overflow: hidden; /* 超出隐藏，防止出现滚动条 */
+  background: #000; /* 背景颜色 */
+  height: 100vh; /* 高度 */
+}
+
+span {
+  position: absolute; /* 绝对定位 */
+  background: url(./img/heart.png); /* 背景图片 */
+  pointer-events: none; /* 事件不遮挡 */
+  transform: translate(-50%, -50%); /* x,y移动 */
+  background-size: cover; /* 背景大小，裁切 */
+  animation: animate 2s linear infinite; /* 动画：名称，时间，速率，重复 */
+}
+
+@keyframes animate {
+  100% {
+    /*
+    * 通过修改透明度，和色调转换实现颜色更改
+    * 利用移动实现上浮
+    **/
+    transform: translate(-50%, -110vh);
+    opacity: 0;
+    filter: hue-rotate(720deg);
+  } 
+}
