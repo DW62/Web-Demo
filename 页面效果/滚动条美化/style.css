@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: consolas;
+}
+body {
+  background: #000;
+}
+section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+}
+
+section h2 {
+  color: #666;
+}
+section p {
+  color: #666;
+  font-size: 1.2em;
+}
+::-webkit-scrollbar {  /* 滚动条 */
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {  /* 滚动条上的滚动滑块. */
+  background: linear-gradient(transparent, #30ff00); /* 背景颜色 */
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #00c6ff);
+}
