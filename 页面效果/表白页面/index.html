@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/clicklove.js"></script>
+  <title>爱心</title>
+  <style type="text/css">
+    html,
+    body {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    canvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .mask {
+      width: 600px;
+      height: 500px;
+      box-shadow: 0 8px 32px 0 rgba(136, 136, 136, 0.37);
+      border-radius: 10px;
+      transform: translate3d(0px, -50%, 0px);
+      position: absolute;
+      right: 10%;
+      top: 50%;
+    }
+    .mask iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    .namebox {
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .namebox h1 {
+      margin: 0 auto;
+    }
+
+    .content {
+      width: 50%;
+      transform: translate3d(0px, -50%, 0px);
+      position: absolute;
+      left: 10%;
+      top: 50%;
+    }
+
+    .tips {
+      line-height: 1.05;
+      margin-bottom: 50px;
+      font-weight: 900;
+      cursor: default;
+      font-size: 30px;
+    }
+
+
+
+    .tips span:nth-child(2) {
+      color: #04ddb2;
+    }
+
+    .tips span:nth-child(3) {
+      margin-top: 10px;
+      display: block;
+      font-size: 1rem;
+      font-weight: 100;
+    }
+
+    .content .opration .item {
+      margin: 20px 0px;
+      font-weight: 100;
+    }
+
+    .content .opration .item .text-input {
+      width: 200px;
+      height: 30px;
+      border-radius: 10px;
+      border: 1px solid #aaaaaa;
+      padding: 5px 10px 5px 10px;
+      font-size: 20px;
+      font-weight: 100;
+    }
+
+    .content .opration .item .text-input:focus {
+      outline: none;
+    }
+
+    .btn {
+      border-radius: 32px;
+      background-color: #5dcab4;
+      width: 200px;
+      height: 50px;
+      border: 0;
+      font-weight: 600;
+      font-size: 25px;
+      color: #fff;
+      margin-top: 10px;
+    }
+    .btn1 {
+      border-radius: 32px;
+      background-color: #5dcab4;
+      width: 200px;
+      height: 50px;
+      border: 0;
+      font-weight: 600;
+      font-size: 25px;
+      color: #fff;
+      margin-top: 10px;
+    }
+   
+  </style>
+
+</head>
+
+<body>
+  <!-- <div class="mask">
+    <iframe src="./show.html" id="iframe" name="ifrme" frameborder="0"></iframe>
+  </div> -->
+  <div class="content">
+    <div class="tips">
+      <span>如果你想对爱心进行更改，那么可以在</span>
+      <span>下方操作</span>
+      <span>快来制作属于你的爱心吧</span>
+    </div>
+    <div class="opration">
+      <div class="mouse-slide item">
+        <span>鼠标文字:</span>
+        <input class="mouse-input text-input" type="text" />
+      </div>
+      <div class="show-text item">
+        <span>漂浮文字:</span>
+        <input class="show-input text-input" type="text" />
+      </div>
+      <div class="show-text item">
+        <span>显示文字:</span>
+        <input class="content-input text-input" type="text" />
+      </div>
+      <div class="love-color item">
+        <span>爱心颜色：</span>
+        <input class="color-input love-color-input" type="color" value="#645dca" />
+      </div>
+      
+      <!-- <div class="bg-color item">
+        <span>背景渐变颜色：</span>
+        <input class="color-input bg-color-input" type="color" value="#ddd6f3" />
+        <input class="color-input bg-color-input" type="color" value="#faaca8" />
+        <input class="color-input bg-color-input" type="color" value="#faaca8" />
+      </div> -->
+      <button class="btn">GENERATE</button>
+    </div>
+  </div>
+
+  <script>
+    let bgColor;
+    let loveColor;
+    //获取设置的爱心颜色，背景颜色
+
+    function getInfo() {
+      bgColor = [];
+      loveColor = document.querySelector('.love-color-input').value;
+      let bgColorInputs = document.querySelectorAll('.bg-color-input');
+      bgColorInputs.forEach(item => {
+        bgColor.push(item.value)
+      })
+    }
+    getInfo();
+    // //点击事件
+    // document.querySelector('.btn').addEventListener('click', function() {
+    //   getInfo();
+    //   document.getElementById('iframe').contentDocument.getElementsByTagName('body')[0].style.backgroundImage = `linear-gradient(-20deg, ${bgColor[0]} 0%, ${bgColor[1]} 100%, ${bgColor[2]} 100%)`;
+    // })
+    //点击事件
+    document.querySelector('.btn').addEventListener('click', function() {
+    getInfo();
+      window.open(`./show.html?bgColor=${bgColor}&loveColor=${loveColor}&contentText=${document.querySelector('.content-input').value}&showText=${document.querySelector('.show-input').value}&mouseText=${document.querySelector('.mouse-input').value}`);
+    })
+  </script>
+
+</body>
+
+</html>
