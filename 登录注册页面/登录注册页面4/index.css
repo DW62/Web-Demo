@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: aqua; */
+    background: url(./bg.jpg) no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-content {
+    position: relative;
+    width: 800px;
+    height: 360px;
+    background-color: rgb(52, 0, 73);
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.banner-box {
+    display: inline-block;
+    width: 500px;
+    height: 100%;
+    /* background-color: rgb(0, 92, 92); */
+    background: url(./bg.jpg) no-repeat;
+    background-size: cover;
+    border-radius: 20px 0 0 20px;
+}
+
+.login-box {
+    width: 330px;
+    height: 100%;
+    /* background-color: rgb(172, 106, 26); */
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-box>h1 {
+    font-size: 36px;
+    margin: 60px 0;
+    color: #fff;
+}
+
+.login-box>input {
+    margin-bottom: 20px;
+    width: 200px;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 36px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+.login-btn {
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+    background-color: rgb(122, 0, 223);
+    border: none;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 900px){
+    .login-content {
+        margin: 0 30px;
+    }
+
+    .banner-box {
+        border-radius: 20px;
+    }
+    
+    .login-box {
+        background-color: rgba(52, 0, 73, 0.5);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        background: url(./bg.jpg) no-repeat center;
+    }
+
+    .login-content {
+        background-color: transparent;
+    }
+
+    .banner-box {
+        display: none;
+    }
+
+    .login-box {
+        position: initial;
+        margin: -40px auto;
+        background-color: transparent;
+    }
+}
